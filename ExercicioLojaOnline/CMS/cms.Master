@@ -1,0 +1,154 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="cms.master.cs" Inherits="ExercicioLojaOnline.CMS.cms" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>ClownFish CMS</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- Material Kit CSS -->
+
+    <link href="assets/css/material-dashboard.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="wrapper ">
+                <div class="sidebar" data-color="purple" data-background-color="white">
+                    <!--
+                      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+                      Tip 2: you can also add an image using data-image tag
+                  -->
+                    <div class="logo">
+
+                        <center>
+                            <img src="../img/logo.png" />
+                        </center>
+                    </div>
+                    <div class="sidebar-wrapper" id="mymenu">
+                        <ul class="nav">
+                            <li class="nav-item active" id="Menu_A" runat="server">
+                                <a class="nav-link" href="backoffice.aspx">
+                                    <i class="material-icons">person</i>
+                                    <p>Perfil de Utilizador</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="Menu_B" runat="server">
+                                <a class="nav-link" href="addproduct.aspx">
+                                    <i class="material-icons">set_meal</i>
+                                    <p>Adiconar Produtos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="Menu_C" runat="server">
+                                <a class="nav-link" href="EditProdutos.aspx">
+                                    <i class="material-icons">edit</i>
+                                    <p>Editar Produtos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="Menu_D" runat="server">
+                                <a class="nav-link" href="addcategoria.aspx">
+                                    <i class="material-icons">category</i>
+                                    <p>Adicionar Categorias</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="Menu_E" runat="server">
+                                <a class="nav-link" href="EditCategoria.aspx">
+                                    <i class="material-icons">edit</i>
+                                    <p>Editar Categorias</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item" id="Li1" runat="server">
+                                <a class="nav-link" href="destaques.aspx">
+                                    <i class="material-icons">reorder</i>
+                                    <p>Destaques Página principal</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="Li2" runat="server">
+                                <a class="nav-link" href="addfuncionario.aspx">
+                                    <i class="material-icons">group_add</i>
+                                    <p>Adicionar funcionário</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="Li3" runat="server">
+                                <a class="nav-link" href="editfuncionario.aspx">
+                                    <i class="material-icons">groups</i>
+                                    <p>Editar/Apagar funcionários</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="Menu_G" runat="server">
+                                <a class="nav-link" href="newsletter.aspx">
+                                    <i class="material-icons">email</i>
+                                    <p>Newsletter</p>
+                                </a>
+                            </li>
+                            <!-- your sidebar here -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="main-panel">
+                    <!-- Navbar -->
+                    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                        <div class="container-fluid">
+                            <div class="navbar-wrapper">
+                                <h1>Benvindo <%:Session["utilizador"]%></h1>
+                                <!--<a class="navbar-brand" href="javascript:;">TESTE</a>-->
+                            </div>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="navbar-toggler-icon icon-bar"></span>
+                                <span class="navbar-toggler-icon icon-bar"></span>
+                                <span class="navbar-toggler-icon icon-bar"></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-end">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <asp:ImageButton ID="btn_logout" runat="server" OnClick="btn_logout_Click" src="images/logout.png"/>
+                                    </li>
+                                    <!-- your navbar here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- End Navbar -->
+                    <div class="content">
+                        <div class="container-fluid">
+                            <!-- your content here -->
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <footer class="footer">
+                        <div class="container-fluid">
+                            <nav class="float-left">
+                                <ul>
+                                    <li>
+                                        <!-- COPY RIGHT -->
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="copyright float-right">
+                                &copy;
+                           
+                                <script>
+                                    document.write(new Date().getFullYear())
+                            </script>
+                            </div>
+                            <!-- your footer here -->
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
